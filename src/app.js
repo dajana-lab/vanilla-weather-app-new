@@ -27,16 +27,24 @@ function dispalyTemperature(response) {
   let conditionElement = document.querySelector("#condition");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  let dateElement = document.querySelector("#date");
+  let timeElement = document.querySelector("#time");
+  let iconElement = document.querySelector("#icon");
+
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
   conditionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  dateElement.innerHTML = formatDate(response.data.date.time * 1000);
+  timeElement.innerHTML = formatDate(response.data.time * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/${response.condition.icon}few-clouds-day.png`
+  );
+  iconElement.setAttribute("alt", response.condition.descriptionn);
 }
 
 let apiKey = "7adbfd2oe230496b6bf0deac7aetb83f";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Zagreb&key=7adbfd2oe230496b6bf0deac7aetb83f&units=metric`;
+let city = "Split";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(dispalyTemperature);
