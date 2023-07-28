@@ -1,5 +1,7 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Edu SA Beginner", cursive;
+  font-family: "Playfair Display", serif;
+  background-image: linear-gradient(to right, #ffefba, #ffffff);
 }
 
 h1 {
@@ -46,8 +48,14 @@ a:hover {
   max-width: 600px;
   margin: 30px auto;
   padding: 20px;
-  border: 1px solid #dadde1;
+  border: 2px solid #f0df22;
   border-radius: 5px;
+}
+
+.weather-app:hover {
+  border: 2px solid #fc9540;
+  opacity: 0.9;
+  box-shadow: 10px 5px 5px rgba(150, 145, 145, 0.201);
 }
 
 .overview {
